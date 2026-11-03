@@ -1,0 +1,24 @@
+{
+  "name": "challenge-xacademy---equipo-4",
+  "version": "1.0.0",
+  "description": "Proyecto de automatización de pruebas End-to-End (E2E) y API desarrollado con Cypress sobre la plataforma **Toolshop** ([https://with-bugs.practicesoftwaretesting.com/](https://with-bugs.practicesoftwaretesting.com/)). Este proyecto incluye la planificación de casos de prueba, ejecución de tests automatizados y reporte estructurado de bugs encontrados.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarySPerez/Challenge-XAcademy---Equipo-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MarySPerez/Challenge-XAcademy---Equipo-4/issues"
+  },
+  "homepage": "https://github.com/MarySPerez/Challenge-XAcademy---Equipo-4#readme",
+  "dependencies": {
+    "cypress": "^16.2.1"
+  }
+}
