@@ -6,17 +6,17 @@ Proyecto de automatización de pruebas End-to-End (E2E) y API desarrollado con C
 
 ## 👥 Integrantes del Equipo
 
-* **Nombre 1**: mail1@ejemplo.com
-* **Nombre 2**: mail2@ejemplo.com
-* **Nombre 3**: mail3@ejemplo.com
-* **Nombre 4**: mail4@ejemplo.com
+* **Nombre 1**: ms.perezgomez@gmail.com
+* **Nombre 2**: marieloso@gmail.com
+* **Nombre 3**: lspecte@gmail.com
+* **Nombre 4**: ezequielmamani7@gmail.com
 
 ---
 
 ## 🔗 Entregables y Documentación
 
-* 📊 **Plan de Casos de Prueba (Excel/Google Sheets)**: [Link al Documento de Casos de Prueba](#)
-* 🐞 **Tablero de Bugs en Trello**: [Link al Tablero de Trello](#)
+* 📊 **Plan de Casos de Prueba (Excel/Google Sheets)**: [Link al Documento de Casos de Prueba](https://docs.google.com/spreadsheets/d/1OXPuCpn0R42XVgqQt3XexceXFgSu9hvBh1eMhpba6OY/edit?gid=0#gid=0)
+* 🐞 **Tablero de Bugs en Trello**: [Link al Tablero de Trello](https://trello.com/invite/b/6aea486cd90850aab6b54f3d/ATTIbd7603512ba448cc9ea582ae95eb757488B46D9B/mi-tablero-de-trello)
 * 📖 **Documentación API (Swagger)**: [API Toolshop Documentation](https://api-with-bugs.practicesoftwaretesting.com/api/documentation)
 
 ---
@@ -51,13 +51,14 @@ cypress-toolshop-challenge/
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
+   git clone https://github.com/tu-usuario/Challenge-XAcademy---Equipo-4.git
+   cd Challenge-XAcademy---Equipo-4.git
    ```
 
 2. **Instalar dependencias:**
    ```bash
    npm install
+   
    ```
 
 ---
