@@ -6,10 +6,10 @@ Proyecto de automatización de pruebas End-to-End (E2E) y API desarrollado con C
 
 ## 👥 Integrantes del Equipo
 
-* **Nombre 1**: ms.perezgomez@gmail.com
-* **Nombre 2**: marieloso@gmail.com
-* **Nombre 3**: lspecte@gmail.com
-* **Nombre 4**: ezequielmamani7@gmail.com
+* **Mary Sofía Pérez**: ms.perezgomez@gmail.com
+* **María de los Angeles Orellana Rivas**: marieloso@gmail.com
+* **Luis Omar Specterman**: lspecte@gmail.com
+* **Ramiro Ezequiel Mamani**: ezequielmamani7@gmail.com
 
 ---
 
