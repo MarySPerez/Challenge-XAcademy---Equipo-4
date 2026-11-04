@@ -20,5 +20,8 @@
   "homepage": "https://github.com/MarySPerez/Challenge-XAcademy---Equipo-4#readme",
   "dependencies": {
     "cypress": "^16.2.1"
+  },
+  "allowScripts": {
+    "cypress@16.2.1": true
   }
 }
