@@ -30,3 +30,21 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('[data-test="password"]').type(password);
     cy.get('[data-test="login-submit"]').click();
 });
+
+Cypress.Commands.add('registrar', (nombre, apellido, fecha_nacimiento, direccion, postcode, ciudad, estado, pais, telefono, email, pass) => {
+    cy.get('[data-test="nav-sign-in"]').click();
+    cy.get('[data-test="register-link"]').click();
+    cy.get('[data-test="first-name"]').type(nombre);
+    cy.get('[data-test="last-name"]').type(apellido);
+    cy.get('[data-test="dob"]').type(fecha_nacimiento);
+    cy.get('[data-test="address"]').type(direccion);
+    cy.get('[data-test="postcode"]').type(postcode);
+    cy.get('[data-test="city"]').type(ciudad);
+    cy.get('[data-test="state"]').type(estado);
+    cy.get('[data-test="country"]').select(pais);
+    cy.get('[data-test="phone"]').type(telefono);
+    cy.get('[data-test="email"]').type(email);
+    cy.get('[data-test="password"]').type(pass);
+    cy.get('[data-test="register-submit"]').click();
+});
+
