@@ -1,0 +1,22 @@
+[
+    {
+        "test_name": "login exitoso",
+        "email": "customer@practicesoftwaretesting.com",
+        "password": "welcome01"
+    },
+    {
+        "test_name": "correo incorrecto",
+        "email": "correo@correo.com",
+        "password": "welcome01"
+    },
+    {
+        "test_name": "password incorrecto",
+        "email": "customer@practicesoftwaretesting.com",
+        "password": "pass12345"
+    },
+    {
+        "test_name": "restablecer pass",
+        "email": "customer",
+        "password": "pass12345"
+    }
+]
