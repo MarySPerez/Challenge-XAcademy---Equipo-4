@@ -1,3 +1,9 @@
+// ENTREGA FINAL QA AUTOMATION
+// Alumno : SPECTERMAN LUIS OMAR
+// Automatizaciones CYPRESS 
+// Modulo BUSQUEDA ARTICULOS ( busqueda , filtros y ordenamiento)
+
+
 describe("Módulo: Búsqueda de productos", () => {
   beforeEach(() => {
     cy.visit("https://with-bugs.practicesoftwaretesting.com/");

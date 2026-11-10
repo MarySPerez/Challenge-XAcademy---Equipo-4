@@ -1,3 +1,8 @@
+// ENTREGA FINAL QA AUTOMATION
+// Alumno : SPECTERMAN LUIS OMAR
+// Automatizaciones CYPRESS 
+// Modulo BUSQUEDA ARTICULOS ( COMANDOS PERSONALIZADOS )
+
 // Comando personalizado para buscar un producto
 Cypress.Commands.add('buscarProducto', (nombreProducto) => {
 
