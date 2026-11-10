@@ -37,8 +37,10 @@ cypress-toolshop-challenge/
 │   ├── fixtures/
 │   │   ├── users.json             # Datos de usuarios de prueba
 │   │   └── contact.json           # Datos para formulario de contacto
+│   │   └── busqueda.json          # Datos para busqueda de productos
 │   └── support/
 │       ├── commands.js            # Custom commands reutilizables (login, etc.)
+│       ├── busquedaCommands.js    # Custom commands reutilizables (para modulo busqueda productos)
 │       └── e2e.js                 # Configuración global de soporte
 ├── .gitignore                      # Exclusión de node_modules y reportes
 ├── package.json                    # Dependencias y scripts de ejecución
