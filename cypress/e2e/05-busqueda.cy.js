@@ -489,7 +489,7 @@ it("BUS-024 - Filtrar productos por Brand Name 2", () => {
 
 
 
-it.only("BUS-025 - Desmarcar una marca", () => {
+it("BUS-025 - Desmarcar una marca", () => {
   cy.get('a.card[data-test^="product-"]')
     .filter(":visible")
     .then(($iniciales) => {
@@ -516,6 +516,67 @@ it.only("BUS-025 - Desmarcar una marca", () => {
         });
     });
 });
+
+
+
+it("BUS-026 - Mostrar solamente productos ecológicos", () => {
+  cy.get('[data-test="eco-friendly-filter"]').check();
+  cy.get('[data-test="eco-friendly-filter"]').should("be.checked");
+
+  cy.wait(1500);
+
+  cy.get('a.card[data-test^="product-"]')
+    .filter(":visible")
+    .should("have.length.greaterThan", 0)
+    .each(($tarjeta) => {
+      cy.wrap($tarjeta)
+        .find('[data-test="eco-badge"]')
+        .should("exist");
+    });
+});
+
+
+
+it("BUS-027 - Desactivar el filtro de productos ecológicos", () => {
+  // Activar el filtro ecológico
+  cy.get('[data-test="eco-friendly-filter"]').check();
+  cy.wait(1500);
+
+  // Comprobar que está activado
+  cy.get('[data-test="eco-friendly-filter"]').should("be.checked");
+
+  // Desactivar el filtro
+  cy.get('[data-test="eco-friendly-filter"]').uncheck();
+  cy.wait(1500);
+
+  // Comprobar que quedó desactivado
+  cy.get('[data-test="eco-friendly-filter"]').should("not.be.checked");
+
+  // Comprobar que vuelven a aparecer productos
+  cy.get('a.card[data-test^="product-"]')
+    .filter(":visible")
+    .should("have.length.greaterThan", 0);
+});
+
+
+
+
+it("BUS-039 - Verificar que el catálogo general incluya productos de alquiler", () => {
+
+  // El catálogo general debe incluir los productos de alquiler
+  cy.get('a.card[data-test^="product-"]').filter(":visible")
+    .should(($tarjetas) => {
+      const nombres = [...$tarjetas].map((tarjeta) =>
+        tarjeta.querySelector('[data-test="product-name"]').textContent.trim().toLowerCase()
+      );
+
+      expect(nombres).to.include("excavator");
+      expect(nombres).to.include("bulldozer");
+      expect(nombres).to.include("crane");
+    });
+
+});
+
 
 
 
