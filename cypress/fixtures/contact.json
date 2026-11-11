@@ -6,7 +6,7 @@
     "email": "qa@test.com",
     "subject": "customer-service",
     "message": "Test query for positive validation testing on the contact form.",
-    "expected_message": "Thanks for your message. We will contact you shortly."
+    "expected_message": "Thanks for your message! We will contact you shortly."
   },
   {
     "test_name": "TC-CNT-002",
