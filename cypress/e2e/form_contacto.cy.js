@@ -89,4 +89,15 @@ describe('Pruebas del Formulario de Contacto - Practice Software Testing', () =>
       cy.get('body').should('contain', 'File type not allowed');
     });
   });
+
+  it('TC-CNT-005: Verificar navegación y etiqueta correcta hacia el módulo de Contacto', () => {
+    cy.visit('/#/');
+    
+    cy.get('[data-test="nav-contact"]')
+      .should('be.visible')
+      .and('have.text', 'Contact')
+      .click();
+
+    cy.url().should('include', '/#/contact');
+  });
 });
