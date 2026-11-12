@@ -33,7 +33,7 @@
     "email": "qa@test.com",
     "subject": "customer-service",
     "message": "12345678901234567890123456789012345678901234567890",
-    "expected_message": "Thanks for your message. We will contact you shortly."
+    "expected_message": "Thanks for your message! We will contact you shortly."
   },
   {
     "test_name": "TC-CNT-004",
