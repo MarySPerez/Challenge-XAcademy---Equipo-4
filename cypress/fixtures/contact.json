@@ -44,5 +44,40 @@
     "message": "Test query trying to upload an invalid file format or size.",
     "attachment": "malicious.exe",
     "expected_error": "File type not allowed"
+  },
+[
+  {
+    "test_name": "TC-CNT-005_TXT",
+    "first_name": "Maria",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "Test query trying to upload a valid txt file format to check successful submission.",
+    "attachment_name": "documento_valido.txt",
+    "mime_type": "text/plain",
+    "expected_message": "Thanks for your message. We will contact you shortly."
+  },
+  {
+    "test_name": "TC-CNT-005_PDF",
+    "first_name": "Maria",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "Test query trying to upload a valid pdf file format to check successful submission.",
+    "attachment_name": "documento_valido.pdf",
+    "mime_type": "application/pdf",
+    "expected_message": "Thanks for your message. We will contact you shortly."
+  },
+  {
+    "test_name": "TC-CNT-005_JPG",
+    "first_name": "Maria",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "Test query trying to upload a valid jpg file format to check successful submission.",
+    "attachment_name": "imagen_valida.jpg",
+    "mime_type": "image/jpeg",
+    "expected_message": "Thanks for your message. We will contact you shortly."
   }
+]
 ]

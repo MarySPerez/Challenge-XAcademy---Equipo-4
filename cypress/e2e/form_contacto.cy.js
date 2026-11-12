@@ -86,11 +86,43 @@ describe('Pruebas del Formulario de Contacto - Practice Software Testing', () =>
 
       cy.get('[data-test="contact-submit"]').click();
 
-      cy.get('body').should('contain', 'File type not allowed');
+      cy.get('body').should('contain', 'The file extension is incorrect, we only accept txt, pdf or jpg files.');
     });
   });
 
-  it('TC-CNT-005: Verificar navegación y etiqueta correcta hacia el módulo de Contacto', () => {
+  it('TC-CNT-005: Envío exitoso de mensaje de contacto adjuntando archivos válidos (txt, pdf y jpg)', () => {
+    cy.fixture('contact').then((data) => {
+      const testCases = data.filter((item) => item.test_name.startsWith('TC-CNT-005'));
+
+      testCases.forEach((testData) => {
+        cy.visit('/#/contact');
+        
+        cy.intercept('POST', '**/messages').as('submitMessage');
+
+        cy.get('[data-test="first-name"]').clear().type(testData.first_name);
+        cy.get('[data-test="last-name"]').clear().type(testData.last_name);
+        cy.get('[data-test="email"]').clear().type(testData.email);
+        cy.get('[data-test="subject"]').select(testData.subject);
+        cy.get('[data-test="message"]').clear().type(testData.message);
+
+        cy.get('[data-test="attachment"]').selectFile({
+          contents: Cypress.Buffer.from('Mock content for valid file test'),
+          fileName: testData.attachment_name,
+          mimeType: testData.mime_type,
+        });
+
+        cy.get('[data-test="contact-submit"]').click();
+
+        cy.wait('@submitMessage');
+
+        cy.get('.alert, [role="alert"]', { timeout: 8000 })
+          .should('be.visible')
+          .and('contain.text', 'Thanks for your message');
+      });
+    });
+  });
+
+  it('TC-CNT-006: Verificar navegación y etiqueta correcta hacia el módulo de Contacto', () => {
     cy.visit('/#/');
     
     cy.get('[data-test="nav-contact"]')
