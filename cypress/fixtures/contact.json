@@ -1,0 +1,48 @@
+[
+  {
+    "test_name": "TC-CNT-001",
+    "first_name": "Mary",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "Test query for positive validation testing on the contact form.",
+    "expected_message": "Thanks for your message! We will contact you shortly."
+  },
+  {
+    "test_name": "TC-CNT-002",
+    "first_name": "Mary",
+    "last_name": "Perez",
+    "email": "correo_invalido_sin_arroba",
+    "subject": "webmaster",
+    "message": "Test query with invalid email format to check error validation.",
+    "expected_error": "Email format is invalid"
+  },
+  {
+    "test_name": "TC-CNT-003_Boundary_Low",
+    "first_name": "Mary",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "1234567890123456789012345678901234567890123456789", 
+    "expected_error": "Message must be minimal 50 characters"
+  },
+  {
+    "test_name": "TC-CNT-003_Boundary_Valid",
+    "first_name": "Mary",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "12345678901234567890123456789012345678901234567890",
+    "expected_message": "Thanks for your message! We will contact you shortly."
+  },
+  {
+    "test_name": "TC-CNT-004",
+    "first_name": "Mary",
+    "last_name": "Perez",
+    "email": "qa@test.com",
+    "subject": "customer-service",
+    "message": "Test query trying to upload an invalid file format or size.",
+    "attachment": "malicious.exe",
+    "expected_error": "File type not allowed"
+  }
+]
