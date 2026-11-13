@@ -30,5 +30,17 @@
   {
     "test_name": "TC-API-15",
     "email": "customer@practicesoftwaretesting.com"
+  },
+  {
+    "test_name": "TC-API-20",
+    "cart_id": "01J00000000000000000000000"
+  },
+  {
+    "test_name": "TC-API-21",
+    "fake_product_id": "01J99999999999999999999999"
+  },
+  {
+    "test_name": "TC-API-22",
+    "product_id": "01J8W3V8W0Q1X2Y3Z4A5B6C7D8"
   }
 ]

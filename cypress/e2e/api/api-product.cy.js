@@ -1,5 +1,5 @@
-  describe('Productos', () => {
-      const apiUrl = 'https://api-with-bugs.practicesoftwaretesting.com';
+describe('Productos', () => {
+  const apiUrl = 'https://api-with-bugs.practicesoftwaretesting.com';
       
   it('TC-API-03: GET /products responde con estructura y tipos de datos válidos', () => {
     cy.request({
