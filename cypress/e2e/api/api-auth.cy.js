@@ -119,7 +119,7 @@ it('TC-API-14 - Registro de usuario nuevo (email único) devuelve 201', () => {
       });
     });
 
-    it('TC-API-15 - Registro con email duplicado devuelve error', () => {
+it('TC-API-15 - Registro con email duplicado devuelve error', () => {
       cy.fixture('api').then((data) => {
         const testData = data.find((item) => item.test_name === 'TC-API-15');
 
@@ -127,46 +127,50 @@ it('TC-API-14 - Registro de usuario nuevo (email único) devuelve 201', () => {
           method: 'POST',
           url: `${apiUrl}/users/register`,
           body: {
-            first_name: 'Duplicado',
-            last_name: 'Usuario',
-            email: testData.email, // Correo que ya existe previamente
-            password: 'Password123!',
-            phone: '123456789',
-            postcode: '12345',
-            state: 'Estado',
-            country: 'US',
-            street: 'Calle Falsa 123',
-            city: 'Ciudad',
-            dob: '1990-01-01'
+            first_name: testData.first_name,
+            last_name: testData.last_name,
+            email: testData.email,
+            password: testData.password,
+            phone: testData.phone,
+            postcode: testData.postcode,
+            state: testData.state,
+            country: testData.country,
+            address: testData.address,
+            city: testData.city,
+            dob: testData.dob
           },
           failOnStatusCode: false
         }).then((response) => {
-          expect(response.status).to.be.oneOf([400, 422]);
+          expect(response.status).to.eq(409);
+          expect(response.body.email[0]).to.contain('already registered');
         });
       });
     });
 
     it('TC-API-16 - Registro con email inválido/contraseña corta devuelve 422', () => {
-      cy.request({
-        method: 'POST',
-        url: `${apiUrl}/users/register`,
-        body: {
-          first_name: 'Invalido',
-          last_name: 'Datos',
-          email: 'correo-sin-formato-valido',
-          password: '123', // Contraseña demasiado corta
-          phone: '123',
-          postcode: '123',
-          state: 'Estado',
-          country: 'US',
-          street: 'Calle',
-          city: 'Ciudad',
-          dob: '1990-01-01'
-        },
-        failOnStatusCode: false
-      }).then((response) => {
-        expect(response.status).to.eq(422);
+      cy.fixture('api').then((data) => {
+        const testData = data.find((item) => item.test_name === 'TC-API-16');
+
+        cy.request({
+          method: 'POST',
+          url: `${apiUrl}/users/register`,
+          body: {
+            first_name: testData.first_name,
+            last_name: testData.last_name,
+            email: testData.email,
+            password: testData.password, 
+            phone: testData.phone,
+            postcode: testData.postcode,
+            state: testData.state,
+            country: testData.country,
+            address: testData.address, 
+            city: testData.city,
+            dob: testData.dob
+          },
+          failOnStatusCode: false
+        }).then((response) => {
+          expect(response.status).to.eq(422);
+        });
       });
     });
-
   });

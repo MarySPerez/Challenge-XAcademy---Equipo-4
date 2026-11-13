@@ -28,34 +28,58 @@ describe('Módulo de Facturas / Órdenes (Flujo de Compras)', () => {
       });
     });
 
-    it('TC-API-20 - GET /invoices/{id} autenticado consulta la factura', () => {
-      cy.fixture('api').then((data) => {
-        const creds = data.find((item) => item.test_name === 'TC-API-02');
-        const invoiceData = data.find((item) => item.test_name === 'TC-API-20');
+    it('TC-API-20 - GET /invoices/{id} autenticado consulta la factura creada dinámicamente', () => {
+          cy.fixture('api').then((data) => {
+            const creds = data.find((item) => item.test_name === 'TC-API-02');
+            const invoiceData = data.find((item) => item.test_name === 'TC-API-19');
 
-        cy.request({
-          method: 'POST',
-          url: `${apiUrl}/users/login`,
-          body: {
-            email: creds.email,
-            password: creds.password
-          }
-        }).then((loginResponse) => {
-          const token = loginResponse.body.access_token;
+            cy.request({
+              method: 'POST',
+              url: `${apiUrl}/users/login`,
+              body: {
+                email: creds.email,
+                password: creds.password
+              }
+            }).then((loginResponse) => {
+              const token = loginResponse.body.access_token;
 
-          cy.request({
-            method: 'GET',
-            url: `${apiUrl}/invoices/${invoiceData.invoice_id}`,
-            headers: {
-              Authorization: `Bearer ${token}`
-            },
-            failOnStatusCode: false
-          }).then((invoiceResponse) => {
-            expect(invoiceResponse.status).to.be.oneOf([200, 404]);
+              cy.request({
+                method: 'POST',
+                url: `${apiUrl}/invoices`,
+                headers: {
+                  Authorization: `Bearer ${token}`
+                },
+                body: {
+                  user_id: 2,
+                  billing_address: invoiceData.billing_address,
+                  billing_city: invoiceData.billing_city,
+                  billing_country: invoiceData.billing_country,
+                  billing_state: invoiceData.billing_state,
+                  billing_postcode: invoiceData.billing_postcode,
+                  total: invoiceData.total,
+                  payment_method: invoiceData.payment_method,
+                  payment_account_name: invoiceData.payment_account_name,
+                  payment_account_number: invoiceData.payment_account_number,
+                  invoice_items: invoiceData.invoice_items
+                }
+              }).then((createResponse) => {
+                expect(createResponse.status).to.be.oneOf([200]);
+                const invoiceId = createResponse.body.id;
+
+                cy.request({
+                  method: 'GET',
+                  url: `${apiUrl}/invoices/${invoiceId}`,
+                  headers: {
+                    Authorization: `Bearer ${token}`
+                  }
+                }).then((getResponse) => {
+                  expect(getResponse.status).to.eq(200);
+                  expect(getResponse.body).to.have.property('id', invoiceId);
+                });
+              });
+            });
           });
         });
-      });
-    });
 
     it('TC-API-21 - Crear factura con datos de producto/ítem inexistente devuelve error', () => {
       cy.fixture('api').then((data) => {

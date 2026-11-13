@@ -29,11 +29,32 @@
   },
   {
     "test_name": "TC-API-15",
-    "email": "customer@practicesoftwaretesting.com"
+    "first_name": "Duplicado",
+    "last_name": "Usuario",
+    "email": "customer2@practicesoftwaretesting.com",
+    "password": "Password123!",
+    "phone": "123456789",
+    "postcode": "12345",
+    "state": "Estado",
+    "country": "US",
+    "address": "Calle Falsa 123",
+    "city": "Ciudad",
+    "dob": "1990-01-01"
   },
   {
-    "test_name": "TC-API-20",
-    "cart_id": "01J00000000000000000000000"
+    "user_id": 2,
+    "test_name": "TC-API-16",
+    "first_name": "Invalido",
+    "last_name": "Datos",
+    "email": "correo-sin-formato-valido",
+    "password": "123",
+    "phone": "123",
+    "postcode": "123",
+    "state": "Estado",
+    "country": "US",
+    "address": "Calle",
+    "city": "Ciudad",
+    "dob": "1990-01-01"
   },
   {
     "test_name": "TC-API-19",
