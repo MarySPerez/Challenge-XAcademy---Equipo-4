@@ -1,0 +1,107 @@
+[
+  {
+    "test_name": "TC-API-02",
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01"
+  },
+  {
+    "test_name": "TC-API-09",
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "PasswordIncorrecta999"
+  },
+  {
+    "test_name": "TC-API-10",
+    "email": "usuario_que_no_existe_999@example.com",
+    "password": "Password123!"
+  },
+  {
+    "test_name": "TC-API-14",
+    "first_name": "John",
+    "last_name": "Doe",
+    "address": "Street 1",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "postcode": "1234AA",
+    "phone": "0987654321",
+    "dob": "1970-01-01",
+    "password": "super-secret"
+  },
+  {
+    "test_name": "TC-API-15",
+    "first_name": "Duplicado",
+    "last_name": "Usuario",
+    "email": "customer2@practicesoftwaretesting.com",
+    "password": "Password123!",
+    "phone": "123456789",
+    "postcode": "12345",
+    "state": "Estado",
+    "country": "US",
+    "address": "Calle Falsa 123",
+    "city": "Ciudad",
+    "dob": "1990-01-01"
+  },
+  {
+    "user_id": 2,
+    "test_name": "TC-API-16",
+    "first_name": "Invalido",
+    "last_name": "Datos",
+    "email": "correo-sin-formato-valido",
+    "password": "123",
+    "phone": "123",
+    "postcode": "123",
+    "state": "Estado",
+    "country": "US",
+    "address": "Calle",
+    "city": "Ciudad",
+    "dob": "1990-01-01"
+  },
+  {
+    "test_name": "TC-API-19",
+    "billing_address": "Street 1",
+    "billing_city": "City",
+    "billing_country": "Country",
+    "billing_state": "State",
+    "billing_postcode": "1234AA",
+    "total": 12.01,
+    "payment_method": "Cash on Delivery",
+    "payment_account_name": "John Doe",
+    "payment_account_number": "0987654345",
+    "invoice_items": [
+      {
+        "product_id": 9,
+        "quantity": 1,
+        "unit_price": 12.01
+      }
+    ]
+  },
+  {
+    "test_name": "TC-API-21",
+    "fake_product_id": "01J99999999999999999999999"
+  },
+  {
+    "test_name": "TC-API-22",
+    "product_id": "01J8W3V8W0Q1X2Y3Z4A5B6C7D8"
+  },
+  {
+    "test_name": "TC-API-23",
+    "name": "John Doe",
+    "email": "john@doe.example",
+    "subject": "website",
+    "message": "Something is wrong with the website."
+  },
+  {
+    "test_name": "TC-API-24",
+    "name": "",
+    "email": "",
+    "subject": "",
+    "message": ""
+  },
+  {
+    "test_name": "TC-API-25",
+    "name": "John Doe",
+    "email": "john@doe.example",
+    "subject": "website",
+    "message": "Este mensaje es extremadamente largo a propósito con la intención de superar el límite de caracteres máximo permitido por el backend en el formulario de contacto de la API, asegurando de esta forma que la validación de longitud de texto rechace correctamente la petición devolviendo el código de error correspondiente."
+  }
+]
