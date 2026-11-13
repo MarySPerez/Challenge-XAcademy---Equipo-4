@@ -36,11 +36,33 @@ describe('Pruebas de API - Practice Software Testing', () => {
     });
 
   describe('Productos', () => {
-    it('TC-API-03 - GET /products responde con estructura válida (id, name, price)', () => {});
+  it('TC-API-03: GET /products responde con estructura y tipos de datos válidos', () => {
+    cy.request({
+      method: 'GET',
+      url: `${apiUrl}/products`
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property('data');
+      expect(response.body.data).to.be.an('array').and.not.be.empty;
 
-    it('TC-API-04 - GET /products/{id} devuelve el detalle del producto', () => {});
+      const primerProducto = response.body.data[0];
+      
+      expect(primerProducto.id).to.be.a('number');
+      expect(primerProducto.name).to.be.a('string');
+      expect(primerProducto.price).to.be.a('number');
+      expect(primerProducto.is_eco_friendly).to.be.a('boolean');
 
-    it('TC-API-05 - GET /products/{id} inexistente devuelve 404', () => {});
+      expect(primerProducto).to.have.property('brand');
+      expect(primerProducto.brand).to.have.property('name').and.to.be.a('string');
+
+      expect(primerProducto).to.have.property('category');
+      expect(primerProducto.category).to.have.property('slug').and.to.be.a('string');
+    });
+  });
+
+    it('TC-API-04: GET /products/{id} devuelve el detalle del producto', () => {});
+
+    it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {});
 
     it('TC-API-06 - GET /products?search=... filtra resultados correctamente', () => {});
 
