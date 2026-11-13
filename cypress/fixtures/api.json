@@ -61,5 +61,26 @@
   {
     "test_name": "TC-API-22",
     "product_id": "01J8W3V8W0Q1X2Y3Z4A5B6C7D8"
+  },
+  {
+    "test_name": "TC-API-23",
+    "name": "John Doe",
+    "email": "john@doe.example",
+    "subject": "website",
+    "message": "Something is wrong with the website."
+  },
+  {
+    "test_name": "TC-API-24",
+    "name": "",
+    "email": "",
+    "subject": "",
+    "message": ""
+  },
+  {
+    "test_name": "TC-API-25",
+    "name": "John Doe",
+    "email": "john@doe.example",
+    "subject": "website",
+    "message": "Este mensaje es extremadamente largo a propósito con la intención de superar el límite de caracteres máximo permitido por el backend en el formulario de contacto de la API, asegurando de esta forma que la validación de longitud de texto rechace correctamente la petición devolviendo el código de error correspondiente."
   }
 ]
