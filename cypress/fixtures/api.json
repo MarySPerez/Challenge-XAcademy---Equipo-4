@@ -36,6 +36,25 @@
     "cart_id": "01J00000000000000000000000"
   },
   {
+    "test_name": "TC-API-19",
+    "billing_address": "Street 1",
+    "billing_city": "City",
+    "billing_country": "Country",
+    "billing_state": "State",
+    "billing_postcode": "1234AA",
+    "total": 12.01,
+    "payment_method": "Cash on Delivery",
+    "payment_account_name": "John Doe",
+    "payment_account_number": "0987654345",
+    "invoice_items": [
+      {
+        "product_id": 9,
+        "quantity": 1,
+        "unit_price": 12.01
+      }
+    ]
+  },
+  {
     "test_name": "TC-API-21",
     "fake_product_id": "01J99999999999999999999999"
   },
