@@ -82,7 +82,18 @@ describe('Pruebas de API - Practice Software Testing', () => {
       });
     });
 
-    it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {});
+    it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {
+    const idInexistente = 1000;
+
+    cy.request({
+      method: 'GET',
+      url: `${apiUrl}/products/${idInexistente}`,
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(404);
+    });
+  });
+
 
     it('TC-API-06 - GET /products?search=... filtra resultados correctamente', () => {});
 
