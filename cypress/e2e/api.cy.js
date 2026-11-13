@@ -14,9 +14,7 @@ describe('Pruebas de API - Practice Software Testing', () => {
   });
 
   it('TC-API-02: Iniciar sesión por API con el usuario de prueba y verificar que devuelve un token de acceso', () => {
-      // Apuntamos al archivo 'api' (que corresponde a api.json)
       cy.fixture('api').then((data) => {
-        // Como tu fixture es un array, filtramos o buscamos el objeto por test_name
         const testData = data.find((item) => item.test_name === 'TC-API-02');
 
         cy.request({
@@ -60,7 +58,29 @@ describe('Pruebas de API - Practice Software Testing', () => {
     });
   });
 
-    it('TC-API-04: GET /products/{id} devuelve el detalle del producto', () => {});
+  it('TC-API-04: GET /products/{id} devuelve el detalle del producto', () => {
+      cy.request({
+        method: 'GET',
+        url: `${apiUrl}/products`
+      }).then((listResponse) => {
+        expect(listResponse.status).to.eq(200);
+        expect(listResponse.body.data).to.be.an('array').and.not.be.empty;
+
+        const productId = listResponse.body.data[0].id;
+        const productName = listResponse.body.data[0].name;
+
+        cy.request({
+          method: 'GET',
+          url: `${apiUrl}/products/${productId}`
+        }).then((detailResponse) => {
+          expect(detailResponse.status).to.eq(200);
+          expect(detailResponse.body).to.have.property('id', productId);
+          expect(detailResponse.body).to.have.property('name', productName);
+          expect(detailResponse.body).to.have.property('price');
+          expect(detailResponse.body.price).to.be.a('number');
+        });
+      });
+    });
 
     it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {});
 
