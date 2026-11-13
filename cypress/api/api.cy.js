@@ -149,9 +149,29 @@ describe('Pruebas de API - Practice Software Testing', () => {
       });
     });
 
-  it('TC-API-08 - Paginación de productos respeta page y per_page', () => {});
-  
-});
+  it('TC-API-08: Paginación de productos respeta page y per_page', () => {
+      const paginaDeseada = 2;
+      const elementosPorPagina = 4;
+
+      cy.request({
+        method: 'GET',
+        url: `${apiUrl}/products`,
+        qs: {
+          page: paginaDeseada,
+          per_page: elementosPorPagina
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+
+        expect(response.body).to.have.property('current_page', paginaDeseada);
+        expect(response.body).to.have.property('per_page', elementosPorPagina);
+
+        expect(response.body).to.have.property('data');
+        expect(response.body.data).to.be.an('array');
+        expect(response.body.data.length).to.be.at.most(elementosPorPagina);
+      });
+    });
+  });
 
   describe('Autenticación y Usuarios', () => {
     it('TC-API-09 - Login con contraseña incorrecta devuelve 401 y sin token', () => {});
