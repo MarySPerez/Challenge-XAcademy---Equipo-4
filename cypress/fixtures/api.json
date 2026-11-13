@@ -3,5 +3,32 @@
     "test_name": "TC-API-02",
     "email": "customer@practicesoftwaretesting.com",
     "password": "welcome01"
+  },
+  {
+    "test_name": "TC-API-09",
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "PasswordIncorrecta999"
+  },
+  {
+    "test_name": "TC-API-10",
+    "email": "usuario_que_no_existe_999@example.com",
+    "password": "Password123!"
+  },
+  {
+    "test_name": "TC-API-14",
+    "first_name": "John",
+    "last_name": "Doe",
+    "address": "Street 1",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "postcode": "1234AA",
+    "phone": "0987654321",
+    "dob": "1970-01-01",
+    "password": "super-secret"
+  },
+  {
+    "test_name": "TC-API-15",
+    "email": "customer@practicesoftwaretesting.com"
   }
 ]
