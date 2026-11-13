@@ -63,7 +63,7 @@ describe('Módulo de Facturas / Órdenes (Flujo de Compras)', () => {
                   invoice_items: invoiceData.invoice_items
                 }
               }).then((createResponse) => {
-                expect(createResponse.status).to.be.oneOf([200]);
+                expect(createResponse.status).to.be.oneOf([201]);
                 const invoiceId = createResponse.body.id;
 
                 cy.request({
