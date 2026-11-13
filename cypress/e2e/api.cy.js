@@ -82,7 +82,7 @@ describe('Pruebas de API - Practice Software Testing', () => {
       });
     });
 
-    it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {
+  it('TC-API-05: GET /products/{id} inexistente devuelve 404', () => {
     const idInexistente = 1000;
 
     cy.request({
@@ -94,13 +94,36 @@ describe('Pruebas de API - Practice Software Testing', () => {
     });
   });
 
+  it('TC-API-06: GET /products?search=... filtra resultados correctamente', () => {
+    const terminoBusqueda = 'brand';
 
-    it('TC-API-06 - GET /products?search=... filtra resultados correctamente', () => {});
+    cy.request({
+      method: 'GET',
+      url: `${apiUrl}/products/search`, 
+      qs: {
+        q: terminoBusqueda
+      },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(200);
 
-    it('TC-API-07 - GET /products?category_id=... filtra por categoría', () => {});
+      expect(response.body).to.have.property('data');
+      expect(response.body.data).to.be.an('array');
 
-    it('TC-API-08 - Paginación de productos respeta page y per_page', () => {});
+      if (response.body.data.length > 0) {
+        const primerResultado = response.body.data[0];
+        const coincide = primerResultado.name.toLowerCase().includes(terminoBusqueda.toLowerCase()) ||
+                         primerResultado.description.toLowerCase().includes(terminoBusqueda.toLowerCase());
+        expect(coincide).to.be.true;
+      }
+    });
   });
+
+  it('TC-API-07 - GET /products?category_id=... filtra por categoría', () => {});
+
+  it('TC-API-08 - Paginación de productos respeta page y per_page', () => {});
+  
+});
 
   describe('Autenticación y Usuarios', () => {
     it('TC-API-09 - Login con contraseña incorrecta devuelve 401 y sin token', () => {});
