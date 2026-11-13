@@ -119,7 +119,35 @@ describe('Pruebas de API - Practice Software Testing', () => {
     });
   });
 
-  it('TC-API-07 - GET /products?category_id=... filtra por categoría', () => {});
+  it('TC-API-07: GET /products?category_id=... filtra por categoría', () => {
+      cy.request({
+        method: 'GET',
+        url: `${apiUrl}/products`
+      }).then((listResponse) => {
+        expect(listResponse.status).to.eq(200);
+        expect(listResponse.body.data).to.be.an('array').and.not.be.empty;
+
+        const categoryId = listResponse.body.data[0].category.id;
+
+        cy.request({
+          method: 'GET',
+          url: `${apiUrl}/products`,
+          qs: {
+            category_id: categoryId
+          }
+        }).then((filterResponse) => {
+          expect(filterResponse.status).to.eq(200);
+          expect(filterResponse.body).to.have.property('data');
+          expect(filterResponse.body.data).to.be.an('array');
+
+          if (filterResponse.body.data.length > 0) {
+            filterResponse.body.data.forEach((producto) => {
+              expect(producto.category.id).to.eq(categoryId);
+            });
+          }
+        });
+      });
+    });
 
   it('TC-API-08 - Paginación de productos respeta page y per_page', () => {});
   
